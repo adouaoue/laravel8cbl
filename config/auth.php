@@ -48,13 +48,18 @@ return [
         ],
 
         'user' => [
-                'driver' => 'session',
-                'provider' => 'users',
+            'driver' => 'session',
+            'provider' => 'users',
         ],
             
          'admin' => [
             'driver' => 'session',
             'provider' => 'admins',
+        ],
+        
+        'patient' => [
+            'driver' => 'session',
+            'provider' => 'patient',
         ],
         
         'blogger' => [
@@ -90,10 +95,15 @@ return [
             'model' => App\Models\Admin::class,
         ],
 
+        'patient' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\patient::class,
+        ],
         'bloggers' => [
             'driver' => 'eloquent',
             'model' => App\Models\Blogger::class,
         ],
+        
         // 'users' => [
         //     'driver' => 'database',
         //     'table' => 'users',

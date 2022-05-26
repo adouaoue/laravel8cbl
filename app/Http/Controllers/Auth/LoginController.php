@@ -50,6 +50,8 @@ class LoginController extends Controller
         return redirect('/login');
         
     }
+
+    //-------------------------------------------------------------------------------------------
     public function showAdminLoginForm()
     {
         return view('login1', ['url' => 'admin']);
@@ -63,7 +65,27 @@ class LoginController extends Controller
 
         if (Auth::guard('admin')->attempt(['email' => $request->email, 'password' => $request->password], $request->get('remember'))) {
 
-            return redirect()->intended('/admin');
+            return redirect()->intended("/admin");
+        }
+        return back()->withInput($request->only('email', 'remember'));
+    }
+    
+    //--------------------------------------------------------------------------------
+    public function showpatientLoginForm()
+    {
+        return view('auth.login', ['url' => 'patient']);
+    }
+
+    public function patientLogin(Request $request)
+    {
+        $this->validate($request, [
+            'email'   => 'required|email',
+            'password' => 'required|min:6'
+        ]);
+
+        if (Auth::guard('patient')->attempt(['email' => $request->email, 'password' => $request->password], $request->get('remember'))) {
+
+            return redirect()->intended('/patient');
         }
         return back()->withInput($request->only('email', 'remember'));
     }

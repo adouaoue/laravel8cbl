@@ -1,0 +1,106 @@
+@extends('layouts.auth2')
+@section('show')
+{{-- <div>
+  <a href="{{ route('info') }} " type="button" class="inline-block px-7 py-3 bg-blue-600 text-white font-medium text-sm leading-snug uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">Ajouter Un Patient</a>
+</div> --}}
+<!-- This example requires Tailwind CSS v2.0+ -->
+
+
+
+<div class="bg-white shadow overflow-hidden sm:rounded-lg">
+    <div class="px-4 py-5 sm:px-6">
+      <h3 class="text-lg leading-6 font-medium text-gray-900">Consultation Information</h3>
+    </div>
+    <div class="border-t border-gray-200">
+      <dl>
+        {{$user}}
+        
+<div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+    <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+    <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+    <tr>
+    <th scope="col" class="px-6 py-3">
+    name patient :    </th>
+    <th scope="col" class="px-6 py-3">
+    num_Dossier :
+    </th>
+    <th scope="col" class="px-6 py-3">
+    date :
+    </th>
+    <th scope="col" class="px-6 py-3">
+    heure :
+    </th>
+    <th scope="col" class="px-6 py-3">
+    Action :
+    </th>
+
+    </thead>
+    <tbody> 
+        {{-- @foreach ($consultation as $c)
+    <tr class="bg-gray-100 text-center border-b text-sm text-gray-600">
+
+        <td class="p-2 border-r">{{$c->nom}}</td>
+        <td class="p-2 border-r">{{$c->num_dossier}}</td>
+        <td class="p-2 border-r">{{$c->heure}}</td>
+        <td class="p-2 border-r">{{$c->date}}</td>
+        <td class="p-2 border-r">
+            @if($c->stauts=='Approved')
+              <label style="color: aquamarine">{{$c->stauts}}</label>
+            
+            @elseif($c->stauts=='Refuse')
+              <label style="color: rgb(255, 0, 0)">{{$c->stauts}}</label>
+            
+            @elseif($c->stauts=='in Progress')
+                <label style="color: rgb(0, 0, 0)">{{$c->stauts}}</label>
+            
+            @endif
+              
+            
+           
+    </tr>
+</tbody>
+@endforeach --}}
+    </table>
+    </div>
+        </div>
+      </dl>
+    </div>
+  </div>
+  
+
+      @endsection
+
+
+
+      --------------------------------------------
+
+      // public function show($num_dossier)
+    // {   $patient=DB::table('patients')->where('num_dossier',$num_dossier)->first();
+    //     return view('showpatient',['patient'=>$patient]);
+    // }
+
+  
+    // public function comp($id)
+    // {
+    //     $patient = patient::findOrFail($id);
+    //     return view('Consultation',compact('patient'));
+    // }
+
+
+
+
+
+                    
+
+
+                  
+              
+
+
+
+
+
+
+
+
+

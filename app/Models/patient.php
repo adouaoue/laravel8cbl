@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Admin;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
@@ -9,16 +10,18 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
     {
         use Notifiable;
 
-        protected $guard = 'Medec';
-        protected $table='patient';
+        protected $guard = 'patient';
+        
+        protected $table='patients';
 
 
         protected $fillable = [
-            'name', 'prenom', 'tell','adress', 'date_naissance','num_dossier', 'email', 'password',
+            'name', 'prenom', 'tell','adress', 'date_ne','num_dossier','Age', 'Gender','Family_Status', 'Job', 'email', 'password','admins_id'
         ];
-   
+     
 
         protected $hidden = [
             'password', 'remember_token',
         ];
+ 
 }

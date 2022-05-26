@@ -5,11 +5,12 @@ namespace App\Http\Controllers\Auth;
 use App\Models\User;
 use App\Models\Admin;
 use App\Models\Blogger;
+use App\Models\patient;
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
-use Illuminate\Http\Request;
 
 class RegisterController extends Controller
 {
@@ -107,7 +108,7 @@ class RegisterController extends Controller
             'email' => 'required|string|email|max:255|unique:bloggers',
             'password' => 'required|string|min:6|confirmed',
         ]);
-        Blogger::create([
+        patient::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),

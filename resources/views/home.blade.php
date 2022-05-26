@@ -5,11 +5,28 @@
     <a href="{{ route('post.ajouter') }} " type="button" class="inline-block px-7 py-3 bg-blue-600 text-white font-medium text-sm leading-snug uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">Ajouter Un Medecin</a>
   </div>
 </div>
+@if (session()->has('success2'))
+    <div class="bg-orange-100 border-l-4 border-orange-500 text-orange-700 p-4" role="alert">
+    <div class="bg-blue-100 border-t border-b border-red-500 text-red-700 px-4 py-3" role="alert">
+        <p class="font-bold">Informational message</p>
+        <p class="text-sm">{{session()->get('success2')}}</p>
+      </div>
+    </div> 
+@endif
+
+@if (session()->has('success1'))
+    <div class="bg-orange-100 border-l-4 border-orange-500 text-orange-700 p-4" role="alert">
+    <div class="bg-blue-100 border-t border-b border-green-500 text-green-700 px-4 py-3" role="alert">
+        <p class="font-bold">Informational message</p>
+        <p class="text-sm">{{session()->get('success1')}}</p>
+      </div>
+    </div> 
+@endif
+
 <body class="h-screen overflow-hidden flex items-center justify-center" style="background: #edf2f7;">
   <div class="table w-full p-2">
       <table class="w-full border">
           <thead>
-
               <tr class="bg-gray-50 border-b">
                   <th class="p-2 border-r cursor-pointer text-sm font-thin text-gray-500">
                       <div class="flex items-center justify-center">
@@ -83,7 +100,7 @@
 
                   <td>
                       <a href="{{ route('post.edit', $i->id ) }}" class="bg-blue-500 p-2 text-white hover:shadow-lg text-xs font-thin">Edit</a>
-                      <a  href="{{ route('post.delete', $i->id ) }}" class="bg-red-500 p-2 text-white hover:shadow-lg text-xs font-thin">Remove</a>
+                      <a  href="{{ url('delete', $i->id ) }}" class="bg-red-500 p-2 text-white hover:shadow-lg text-xs font-thin">Remove</a>
                   </td>
               </tr>
           </tbody>

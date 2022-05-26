@@ -9,6 +9,7 @@
 
     <!-- Tailwind -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    
     <style>
         @import url('https://fonts.googleapis.com/css?family=Karla:400,700&display=swap');
         .font-family-karla { font-family: karla; }
@@ -27,33 +28,33 @@
         <div class="p-16">
             <p class="text-white text-3xl font-semibold uppercase">Admin</p>
         </div>
-        
         <nav class="text-white text-base font-semibold pt-3">
-            <a href="{{ route('index') }}" class="flex items-center active-nav-link text-white py-4 pl-9 nav-item">
+            <a href="{{ route('show') }}" class="flex items-center active-nav-link text-white py-4 pl-9 nav-item">
                 <i class="fas fa-tachometer-alt mr-3"></i>
                 Dashboard
             </a>
-            <a href="{{ route('ajouter') }}" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-9 nav-item">
+            <a href="{{ route('patient.indexPatient') }}" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-9 nav-item">
                 <i class="fas fa-sticky-note mr-3"></i>
+                liste-Patient
+
+            </a>
+          
+            <a href="{{ route('ajouter') }}" class="flex items-center active-nav-link text-white py-4 pl-9 nav-item">
+                <i class="fas fa-tachometer-alt mr-3"></i>
                 Patient
             </a>
-            <a href=""  class="flex items-center active-nav-link text-white py-4 pl-9 nav-item">
-                <i class="fas fa-tachometer-alt mr-3"></i>
-                Consultation
-            </a>
-            <a href="" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-9 nav-item">
+           
+            <a href="{{ route('Traitement.index') }}" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-9 nav-item">
                 <i class="fas fa-sticky-note mr-3"></i>
                 Traitement
             </a>
-            <a href=""  class="flex items-center active-nav-link text-white py-4 pl-9 nav-item">
+            <a href="{{ route('consultation.index') }}"  class="flex items-center active-nav-link text-white py-4 pl-9 nav-item">
                 <i class="fas fa-tachometer-alt mr-3"></i>
-                Statistique
+                Consultation
             </a>
-            <a href="" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-9 nav-item">
-                <i class="fas fa-sticky-note mr-3"></i>
-                Parametre
-            </a>
-
+       
+           
+            
       
         </nav>
 
@@ -74,7 +75,14 @@
         <div class="w-full overflow-x-hidden border-t flex flex-col">
             <main class="w-full flex-grow p-6">
                 @yield('content')
+                @yield('content1')
                 @yield('form1')
+                @yield('show')
+                @yield('jointure')
+                @yield('medi')
+                @yield('showj')
+                @yield('consu')
+                
 
                 <div class="w-full mt-12">
                     <div class="bg-white overflow-auto">

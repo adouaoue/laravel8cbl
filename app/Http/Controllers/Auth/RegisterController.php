@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use App\Providers\RouteServiceProvider;
+use Illuminate\Contracts\Session\Session;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 
@@ -76,11 +77,21 @@ class RegisterController extends Controller
             'email' => 'required|string|email|max:255|unique:admins',
             'password' => 'required|string|min:6|confirmed',
         ]);
-        Admin::create([
+
+        $admin = Admin::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
         ]);
+        
+ $request->session()->push('admin', [
+        'name' => $request->name,
+        'email' => $request->email,
+ ]);
+        // Session::push('admin',[
+        //     'name' => $request->name,
+        //     'email' => $request->email,
+        // ]);
         return redirect()->intended('login/admin');
     }
 

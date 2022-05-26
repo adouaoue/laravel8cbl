@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\patient;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
@@ -12,8 +13,12 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
         protected $guard = 'Medec';
 
         protected $fillable = [
-            'name', 'prenom', 'tell','adress', 'departement','spesialite', 'email', 'password',
+            'patient_id','name', 'prenom', 'tell','adress', 'departement','spesialite', 'email', 'password',
         ];
+        public function user()
+        {
+            return $this->belongsTo(patient::class);
+        }
 
         protected $hidden = [
             'password', 'remember_token',

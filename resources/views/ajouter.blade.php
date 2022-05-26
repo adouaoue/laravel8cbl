@@ -2,19 +2,12 @@
 @section('form')
 
 
-@if ($errors->any())
-<div class="alert alert-danger">
-    <ul>
-        @foreach ($errors->all() as $error)
-            <li>{{ $error }}</li>
-        @endforeach
-    </ul>
-</div>
-@endif
+
 <div class="mt-10 sm:mt-0">
   <div>
     <div class="md:col-span-1">
     </div>
+    @include('flash-message')
     <div class="mt-5 md:mt-0 md:col-span-2">
       <form method="POST" action="{{ route('post.add') }}">
         @csrf
@@ -75,26 +68,4 @@
 
 
 
-{{-- 
 
-
-
-<form method="POST" action="{{ route('post.add') }}">
-
-
-<div class="mb-3">
-    <label for="formGroupExampleInput" class="form-label">name</label>
-    <input type="text" class="form-control" name="name">
-  </div>
-  <div class="mb-3">
-    <label>email</label>
-    <input type="text" class="form-control" name="email" placeholder="Another input placeholder">
-  </div>
-  <div class="mb-3">
-    <label for="formGroupExampleInput" class="form-label">password</label>
-    <input type="password" class="form-control" name="password">
-  </div>
-
-
-  <button>valide</button>
-</form> --}}
